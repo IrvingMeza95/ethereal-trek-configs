@@ -5,10 +5,16 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: servicio-ventas
-          uri: lb://servicio-ventas
+        - id: gestionPaqSer
+          uri: lb://gestionPaqSer
           predicates:
             - Path=/api/services/**
+          filters:
+            - StripPrefix=2
+        - id: gestionCompra
+          uri: lb://gestionCompra
+          predicates:
+            - Path=/api/compras/**
           filters:
             - StripPrefix=2
         - id: gestionEmpCli
