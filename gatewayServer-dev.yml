@@ -29,6 +29,12 @@ spring:
             - Path=/api/security/**
           filters:
             - StripPrefix=2
+        - id: gestionEmail
+          uri: lb://gestionEmail
+          predicates:
+            - Path=/api/emails/**
+          filters:
+            - StripPrefix=2
 management:
   endpoints:
     web:
