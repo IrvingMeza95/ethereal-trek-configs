@@ -2,11 +2,17 @@ resilience4j:
   circuitbreaker:
     configs:
       defecto:
+        #Tamaño de la muestra para las peticiones a evaluar.
         sliding-window-size: 6
+        #Porcentaje de fallos tolerados en la muestra
         failure-rate-threshold: 50
+        #Tiempo en el que el servicio permanecera en estado semi abierto al superar el procentaje de fallos
         wait-duration-in-open-state: 20s
+        #Numero de peticiones de prueba permitidas en estado semi abierto
         permitted-number-of-calls-in-half-open-state: 4
+        #Porcentaje de llamas lentas permitidas
         slow-call-rate-threshold: 50
+        #Tiempo limite permitido por llamada
         slow-call-duration-threshold: 2s
     instances:
       generic:
