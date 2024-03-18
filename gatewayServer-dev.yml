@@ -11,12 +11,6 @@ spring:
             - Path=/api/services/**
           filters:
             - StripPrefix=2
-        - id: gestionCompra
-          uri: lb://gestionCompra
-          predicates:
-            - Path=/api/compras/**
-          filters:
-            - StripPrefix=2
         - id: gestionEmpCli
           uri: lb://gestionEmpCli
           predicates:
